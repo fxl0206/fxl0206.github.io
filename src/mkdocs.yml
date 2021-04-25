@@ -1,1 +1,56 @@
-site_name: My Docs
+site_name: Micro Docs
+repo_url: http://gitai-console.asiainfo.com
+repo_name: "Micro/docs"
+theme:
+  language: 'zh'
+  highlightjs: true
+  name: 'material'
+   #name: "material"flatly
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+  features:
+  - navigation.sections
+  - header.autohide
+  - navigation.tabs
+  feature:
+    tabs: true
+  palette:
+    primary: blue grey
+
+nav:
+- Index: index.md
+- Bin: 
+  - "bin": bin/bin.md
+
+plugins:
+  - search
+  - build_plantuml:
+      render: "server" # or "local" for local rendering
+      bin_path: "/usr/local/bin/plantuml" # ignored when render: server
+      #server: "http://www.plantuml.com/plantuml" # offical plantuml server
+      server: "http://10.21.20.154:8001/plantuml"
+      output_format: "svg" # or "png"
+      diagram_root: "docs/diagrams" # should reside under docs_dir
+      output_folder: "out"
+      input_folder: "src"
+      input_extensions: ""
+  - codeinclude
+  - include-markdown
+  - includex
+  - diagrams:
+      file_extension: ".diagrams.py"
+      max_workers: 5
+
+markdown_extensions:
+  - admonition                    #支持注解
+  - codehilite:                   #代码块高亮
+      linenums: true              #代码块显示行号
+  - pymdownx.tasklist             #支持任务列表
+  - pymdownx.magiclink
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences
+  #- pymdownx.tabbed
+  #- pymdownx.tabbed
