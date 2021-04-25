@@ -1,0 +1,3 @@
+#common
+nslink: #映射当前主机docker netns
+	curl -sL https://fxl0206.github.io/netx/nslink.sh | sudo sh

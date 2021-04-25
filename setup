@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+rm -rf ~/.hubx
+mkdir ~/.hubx
+curl -s -O https://fxl0206.github.io/Makefile

@@ -20,8 +20,6 @@ theme:
 
 nav:
 - Index: index.md
-- Bin: 
-  - "bin": bin/bin.md
 
 plugins:
   - search

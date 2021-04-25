@@ -1,17 +1,7 @@
-# Welcome to MkDocs
+# Index
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+## Quick Start
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+```shell
+curl -sL https://fxl0206.github.io/Makefile
+```
