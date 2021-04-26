@@ -3,5 +3,5 @@
 ## Quick Start
 
 ```shell
-curl -sL https://fxl0206.github.io/Makefile
+curl -sL https://fxl0206.github.io/setup | sh
 ```
