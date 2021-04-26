@@ -1,4 +1,6 @@
 #!/usr/bin/bash
 rm -rf ~/.hubx
 mkdir ~/.hubx
-curl -sL https://fxl0206.github.io/modules.tgz | xargs tar -zxvf -C ~/.hubx
+curl -s -O https://fxl0206.github.io/Makefile
+curl -s -o ~/.hubx/m.tgz https://fxl0206.github.io/modules.tgz 
+cd ~/.hubx/ && tar -zxvf m.tgz && rm -f ~/.hubx/m.tgz
