@@ -10,7 +10,7 @@ up: index# 真实构建site
 	&& rsync -avzP --chmod=D777,F777 --progress ./.site/* ../
 
 deploy: #部署到github
-	git add *
+	git add ../*
 	git commit -m "up"
 	git push origin master 
 
