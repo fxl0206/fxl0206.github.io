@@ -1,13 +1,13 @@
 #common
 module=$(word 1,${MAKECMDGOALS})
 
-ifeq ($(findstring $(module),clean syn),$(module))
+ifeq ($(findstring $(module),clean help),$(module))
 
 clean:
 	rm -rf ${CURDIR}/.site
 
 help: 
-	@echo ok
+	@ls build
 
 else #自动加载模块
 
