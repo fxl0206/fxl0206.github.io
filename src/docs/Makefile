@@ -1,6 +1,7 @@
 #common
 module=$(word 1,${MAKECMDGOALS})
 localIndexs=~/.hubx/indexs
+moduleHome=~/.hubx/${module}
 repoUrl=https://fxl0206.github.io
 moduleUrl=${repoUrl}/${module}
 
@@ -16,7 +17,7 @@ clean:
 	@rm -rf ~/.hubx/*
 else #自动加载模块
 
-mkfile=~/.hubx/.Makefile-${module}
+mkfile=${moduleHome}/.Makefile-${module}
 
 ${mkfile}: 
 #	cp ${module}/Makefile-${module} ${mkfile}
