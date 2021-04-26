@@ -1,0 +1,4 @@
+#common
+#1
+cdlinux:  #直接从当前目录打开linux子系统bash
+	@curl -sL ${moduleUrl}/regedit.reg
