@@ -17,7 +17,7 @@ clean:
 	@rm -rf ~/.hubx/*
 else #自动加载模块
 
-mkfile=${moduleHome}/.Makefile-${module}
+mkfile=${moduleHome}/Makefile-${module}
 
 ${mkfile}: 
 #	cp ${module}/Makefile-${module} ${mkfile}
