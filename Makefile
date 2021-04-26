@@ -8,7 +8,6 @@ moduleUrl=${repoUrl}/${module}
 ifeq ($(findstring $(module),help clean),$(module))
 
 ${localIndexs}:
-#	@cp indexs ${localIndexs}
 	@curl -s -o ${localIndexs} ${repoUrl}/indexs
 
 help: ${localIndexs}
@@ -19,12 +18,15 @@ else #自动加载模块
 
 mkfile=${moduleHome}/Makefile-${module}
 
-${mkfile}: 
-#	cp ${module}/Makefile-${module} ${mkfile}
+${mkfile}:
+	@if [ ! -d "${moduleHome}" ]; then\
+	 mkdir -p ${moduleHome};\
+	 fi
 	@curl -s -o ${mkfile} ${moduleUrl}/Makefile-${module}
 
 ${module}: ${mkfile}
 	@echo "use ${module} module"
+
 help:
 	@grep '^[^#[:space:]].*: ' ${mkfile} | grep "#" | awk -F'#'  {'print "--> "$$1  "#"$$2'}
 
