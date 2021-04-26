@@ -1,2 +1,2 @@
 tar -zcvf modules.tgz Makefile\
- netx \
+ netx/Makefile-netx \

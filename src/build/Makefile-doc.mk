@@ -4,7 +4,7 @@ test: #本地测试
 index:
 	@find ./docs -name "Makefile-*" | awk -F'-'  {'print $$2'} > ${CURDIR}/docs/indexs
 	@echo "tar -zcvf modules.tgz Makefile\\">${CURDIR}/docs/wrapper.sh
-	@cat ${CURDIR}/docs/indexs | while read line; do echo " $$line \\">>${CURDIR}/docs/wrapper.sh; done;
+	@cat ${CURDIR}/docs/indexs | while read line; do echo " $$line/Makefile-$$line \\">>${CURDIR}/docs/wrapper.sh; done;
 	@cd docs && sh ${CURDIR}/docs/wrapper.sh
 
 up: index# 真实构建site
