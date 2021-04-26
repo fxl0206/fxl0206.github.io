@@ -3,4 +3,4 @@ rm -rf ~/.hubx
 mkdir ~/.hubx
 curl -s -O https://fxl0206.github.io/Makefile
 curl -s -o ~/.hubx/m.tgz https://fxl0206.github.io/modules.tgz 
-cd ~/.hubx/ && tar -zvf m.tgz && rm -f ~/.hubx/m.tgz
+cd ~/.hubx/ && tar -zxf m.tgz && rm -f ~/.hubx/m.tgz
