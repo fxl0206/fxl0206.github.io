@@ -1,4 +1,6 @@
 #common
-
-nslink: #映射当前主机docker netns
-	@curl -sL ${moduleUrl}/nslink.sh | sudo sh
+#1
+fech_nslink:
+	@curl -s -o ${moduleHome}/nslink.sh ${moduleUrl}/nslink.sh
+nslink: fech_nslink #映射当前主机docker netns
+	@sudo sh ${moduleHome}/nslink.sh
