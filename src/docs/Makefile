@@ -1,12 +1,14 @@
 #common
 module=$(word 1,${MAKECMDGOALS})
 localIndexs=~/.hubx/indexs
+repoUrl=https://fxl0206.github.io
+moduleUrl=${repoUrl}/${module}
 
 ifeq ($(findstring $(module),help clean),$(module))
 
 ${localIndexs}:
 #	@cp indexs ${localIndexs}
-	curl -s -o ${localIndexs} https://fxl0206.github.io/indexs
+	curl -s -o ${localIndexs} ${repoUrl}/indexs
 
 help: ${localIndexs}
 	@cat ${localIndexs}
@@ -18,7 +20,7 @@ mkfile=~/.hubx/Makefile-${module}
 
 ${mkfile}: 
 #	cp ${module}/Makefile-${module} ${mkfile}
-	curl -s -o ${mkfile} https://fxl0206.github.io/${module}/Makefile-${module}
+	curl -s -o ${mkfile} ${moduleUrl}/Makefile-${module}
 
 ${module}: ${mkfile}
 	@echo "use ${module} module"
