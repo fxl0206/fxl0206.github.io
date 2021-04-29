@@ -2,6 +2,7 @@
 fetch_render=${moduleHome}/code_render.sh
 ${fetch_render}:
 	@curl -s -o ${fetch_render} ${moduleUrl}/code_render.sh
+	@chmod +x ${fetch_render}
 
 ifeq ("$(MARKDOWN_OUT)", "")
 build:
@@ -9,28 +10,28 @@ build:
 	@exit 1
 else	
 main: ${fetch_render}
-	@echo "# demo-springboot-app" > ${OUT_NAME}
+	@echo "# demo-springboot-app" > ${MARKDOWN_OUT}
 
 pom: 
-	@echo "" >> ${OUT_NAME}
-	@echo "## pom.xml" >> ${OUT_NAME}
-	@echo "" >> ${OUT_NAME}
-	@echo "\`\`\` xml">> ${OUT_NAME}
-	@cat ./pom.xml >>${OUT_NAME}
-	@echo "" >> ${OUT_NAME}
-	@echo "\`\`\`" >> ${OUT_NAME}
+	@echo "" >> ${MARKDOWN_OUT}
+	@echo "## pom.xml" >> ${MARKDOWN_OUT}
+	@echo "" >> ${MARKDOWN_OUT}
+	@echo "\`\`\` xml">> ${MARKDOWN_OUT}
+	@cat ./pom.xml >>${MARKDOWN_OUT}
+	@echo "" >> ${MARKDOWN_OUT}
+	@echo "\`\`\`" >> ${MARKDOWN_OUT}
 
 config: 
-	@echo "" >> ${OUT_NAME}
-	@echo "## 配置文件" >> ${OUT_NAME}
-	@${moduleHome}/code_render.sh ./src/main/resources ${OUT_NAME}
+	@echo "" >> ${MARKDOWN_OUT}
+	@echo "## 配置文件" >> ${MARKDOWN_OUT}
+	@${moduleHome}/code_render.sh ./src/main/resources ${MARKDOWN_OUT}
 	
 code: 
-	@echo "" >> ${OUT_NAME}
-	@echo "## 源码" >> ${OUT_NAME}
-	@${moduleHome}/code_render.sh ./src/main/java ${OUT_NAME}
+	@echo "" >> ${MARKDOWN_OUT}
+	@echo "## 源码" >> ${MARKDOWN_OUT}
+	@${moduleHome}/code_render.sh ./src/main/java ${MARKDOWN_OUT}
 	
 build: main pom config code #构建当前工程为markdown
-	@echo build ok,save file to ${OUT_NAME}
+	@echo build ok,save file to ${MARKDOWN_OUT}
 
 endif
