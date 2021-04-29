@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+rm -rf ~/.hubx
+mkdir ~/.hubx
+curl -s -o ~/.hubx/m.tgz https://fxl0206.github.io/modules.tgz 
+cd ~/.hubx/ && tar -zxf m.tgz && rm -f ~/.hubx/m.tgz
