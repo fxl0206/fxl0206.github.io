@@ -1,0 +1,31 @@
+OUT_NAME=${CURDIR}/a.md
+
+#1
+fetch_render=${moduleHome}/code_render.sh
+${fetch_render}:
+	@curl -s -o ${fetch_render} ${moduleUrl}/code_render.sh
+
+main: ${fetch_render}
+	@echo "# demo-springboot-app" > ${OUT_NAME}
+
+pom: 
+	@echo "" >> ${OUT_NAME}
+	@echo "## pom.xml" >> ${OUT_NAME}
+	@echo "" >> ${OUT_NAME}
+	@echo "\`\`\` xml">> ${OUT_NAME}
+	@cat ./pom.xml >>${OUT_NAME}
+	@echo "" >> ${OUT_NAME}
+	@echo "\`\`\`" >> ${OUT_NAME}
+
+config: 
+	@echo "" >> ${OUT_NAME}
+	@echo "## 配置文件" >> ${OUT_NAME}
+	@${moduleHome}/code_render.sh ./src/main/resources ${OUT_NAME}
+	
+code: 
+	@echo "" >> ${OUT_NAME}
+	@echo "## 源码" >> ${OUT_NAME}
+	@${moduleHome}/code_render.sh ./src/main/java ${OUT_NAME}
+	
+build: main pom config code #构建当前工程为markdown
+	@echo build ok,save file to ${OUT_NAME}
